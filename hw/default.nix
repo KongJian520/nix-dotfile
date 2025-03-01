@@ -1,4 +1,13 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
-  imports = [ ./configuration.nix ];
+  imports = [
+    ./configuration.nix
+    ./nvidia.nix
+    ./audio.nix
+    ./user.nix
+  ];
+
+
+
+
 }

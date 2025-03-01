@@ -5,22 +5,35 @@
   ...
 }:
 {
-  home.packages = [
-    pkgs.dconf
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.wayland
+  home.packages = with pkgs; [
+    hyprls
+    gwenview
+    hyprlock
+    dconf
+    xdg-desktop-portal-hyprland
+    wayland
+    fuzzel
+    swww
+    xfce.thunar
+    xfce.thunar-archive-plugin
   ];
+  home.file.".config/hypr/" = {
+    source = ./.config/hypr;
+    recursive = true; # 递归整个文件夹
+  };
+
   wayland.windowManager.hyprland = {
-    # Whether to enable Hyprland wayland compositor
     enable = true;
-    # The hyprland package to use
     package = pkgs.hyprland;
-    # Whether to enable XWayland
     xwayland.enable = true;
     extraConfig = ''
-
-
+      source = ./default.conf
     '';
   };
+
+  programs.hyprlock = {
+    enable = true;
+  };
+  home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 }

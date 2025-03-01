@@ -7,6 +7,7 @@
     nixfmt-rfc-style
     vim
     hyprland
+
     nil
   ];
 }

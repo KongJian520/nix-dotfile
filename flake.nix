@@ -23,7 +23,7 @@
       nixpkgs,
       vscode-server,
       home-manager,
-      
+
       ...
     }@inputs:
     {
@@ -34,6 +34,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
             home-manager.users.kongjian = import ./sw/home;
             home-manager.extraSpecialArgs = inputs;
           }
