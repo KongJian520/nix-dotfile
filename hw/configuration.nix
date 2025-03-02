@@ -48,7 +48,6 @@
     variant = "";
   };
 
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -60,11 +59,11 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    pulseaudio
+
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git

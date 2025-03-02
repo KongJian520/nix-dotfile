@@ -7,7 +7,7 @@
 {
   home.packages = with pkgs; [
     hyprls
-    gwenview
+    # gwenview
     hyprlock
     dconf
     xdg-desktop-portal-hyprland
@@ -35,5 +35,5 @@
     enable = true;
   };
   home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
+
 }

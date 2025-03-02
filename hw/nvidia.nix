@@ -5,9 +5,20 @@
   ...
 }:
 {
-  # environment.systemPackages = [
-  #   pkgs.cudaPackages.cudatoolkit
-  # ];
+  environment.systemPackages = with pkgs; [
+    cudaPackages.cudatoolkit
+    lshw
+  ];
+
+  hardware.nvidia.prime = {
+    reverseSync.enable = true;
+    # Enable if using an external GPU
+    allowExternalGpu = false;
+
+    # Make sure to use the correct Bus ID values for your system!
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+  };
 
   # Enable OpenGL
   hardware.graphics = {
